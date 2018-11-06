@@ -1,0 +1,5 @@
+Compile Less code:
+lessc styles.less styles.css
+
+Compile Sass code:
+npm run scss
