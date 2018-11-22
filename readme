@@ -66,3 +66,10 @@ npm install --save-dev usemin-cli@0.5.1 cssmin@0.4.3 uglifyjs@2.4.11 htmlmin@0.0
     cssmin
     uglifyjs
     htmlmin
+
+  Gulp intallation:
+    npm install -g gulp-cli@2.0.1
+
+    npm install gulp@3.9.1 --save-dev
+
+    npm install gulp-sass@3.1.0  browser-sync@2.23.6 --save-dev
