@@ -1,5 +1,68 @@
-Compile Less code:
+
+Setting up the development environment:
+
+* Install lite server:
+npm install lite-server --save-dev
+
+* Installing Bootstrap:
+npm install bootstrap@4.0.0 --save
+npm install jquery@3.3.1 popper.js@1.12.9 --save
+
+* Install icon and fonts:
+npm install font-awesome@4.7.0 --save
+npm install bootstrap-social@5.1.1 --save
+
+* Compile Less code:
 lessc styles.less styles.css
 
-Compile Sass code:
+* Compile Sass code:
 npm run scss
+
+Setting up the distribution folder:
+
+parallelshell:
+npm install --save-dev onchange@3.3.0 parallelshell@3.0.2
+
+add the script "start": "npm run watch:all",
+
+install rimraf:
+npm install --save-dev rimraf@2.6.2
+
+add the script:
+"clean": "rimraf dist",
+
+npm -g install copyfiles@2.0.0
+
+"copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts",
+
+
+npm -g install imagemin-cli@3.0.0
+
+sudo npm install -g imagemin-cli@3.0.0 --unsafe-perm=true --allow-root
+
+"imagemin": "imagemin img/* -o dist/img",
+
+Preparing de distro folder:
+npm install --save-dev usemin-cli@0.5.1 cssmin@0.4.3 uglifyjs@2.4.11 htmlmin@0.0.7
+
+"usemin": "usemin contactus.html -d dist --htmlmin -o dist/contactus.html && usemin aboutus.html -d dist --htmlmin -o dist/aboutus.html && usemin index.html -d dist --htmlmin -o dist/index.html",
+  "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run usemin"
+
+* surround css links using:
+
+ <!-- build:css css/main.css -->
+  <!-- endbuild -->
+
+ To build the distribution folder, you can type the following at the prompt:
+ npm run build
+
+ NPM Modules:
+    onchange
+    parallelshell
+    rimraf
+    copyfiles
+    imagemin-cli
+    usemin-cli
+    cssmin
+    uglifyjs
+    htmlmin
